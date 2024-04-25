@@ -102,6 +102,7 @@ pygame.time.set_timer(SCREEN_UPDATE, 150)
 main_game = MAIN()
 
 # Game Loop
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -118,6 +119,10 @@ while True:
                 main_game.snake.change_direction(Vector2(0,1))
             elif event.key == pygame.K_LEFT and main_game.snake.direction.x != 1:
                 main_game.snake.change_direction(Vector2(-1,0))
+            elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc click chuột
+                pygame.quit()
+                sys.exit()
+
   #  screen.fill((175, 215, 70))
     main_game.draw_elements()
     pygame.display.update()
