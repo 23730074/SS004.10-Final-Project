@@ -44,8 +44,8 @@ class FRUIT:
         self.randomize()
 
     def draw_fruit(self):
-        fruit_rect = pygame.Rect(int(self.pos.x * cell_size), int(self.pos.y * cell_size), cell_size, cell_size)
-        pygame.draw.rect(screen, (126, 166, 114), fruit_rect)
+        fruit_pos = (int(self.pos.x * cell_size) + cell_size // 2, int(self.pos.y * cell_size) + cell_size // 2)
+        pygame.draw.circle(screen, (255, 0, 0), fruit_pos, cell_size // 2)
 
     def randomize(self):
         self.pos = Vector2(random.randint(0, cell_number_w - 1), random.randint(0, cell_number_h - 1))
@@ -82,9 +82,12 @@ class MAIN:
             self.game_over()
         for block in self.snake.body[1:]:
             if block == self.snake.body[0]:
+                print("Gameover")
                 self.game_over()
 
+
     def game_over(self):
+        
         self.snake.reset()
 
 # Game Setup
@@ -119,7 +122,7 @@ while True:
                 main_game.snake.change_direction(Vector2(0,1))
             elif event.key == pygame.K_LEFT and main_game.snake.direction.x != 1:
                 main_game.snake.change_direction(Vector2(-1,0))
-            elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc click chuột
+            elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc công click chu
                 pygame.quit()
                 sys.exit()
 
