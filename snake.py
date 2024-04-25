@@ -54,7 +54,7 @@ class MAIN:
     def __init__(self):
         self.snake = SNAKE()
         self.fruit = FRUIT()
-
+        self.score = 0 
     def update(self):
         self.snake.move_snake()
         self.check_collision()
@@ -71,11 +71,19 @@ class MAIN:
         self.draw_board()
         self.fruit.draw_fruit()
         self.snake.draw_snake()
-
+        self.draw_score()
     def check_collision(self):
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
+            self.score += 1
+
+    def draw_score(self):
+        font = pygame.font.Font(None, 36)
+        score_text = font.render(f"Score: {self.score}", True, (255, 255, 255))
+        screen.blit(score_text, (10, 10))
+
+
 
     def check_fail(self):
         if not 0 <= self.snake.body[0].x < cell_number_w or not 0 <= self.snake.body[0].y < cell_number_h:
