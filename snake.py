@@ -38,6 +38,7 @@ class SNAKE:
     def reset(self):
         self.body = [Vector2(5, 10), Vector2(4, 10), Vector2(3, 10)]
         self.direction = Vector2(1, 0)
+        self.score = 0
 
 class FRUIT:
     def __init__(self):
@@ -71,18 +72,15 @@ class MAIN:
         self.draw_board()
         self.fruit.draw_fruit()
         self.snake.draw_snake()
-        self.draw_score()
+        font = pygame.font.Font(None, 36)
+        score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
+        screen.blit(score_text, (10, 10))
+        
     def check_collision(self):
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
             self.score += 1
-
-    def draw_score(self):
-        font = pygame.font.Font(None, 36)
-        score_text = font.render(f"Score: {self.score}", True, (255, 255, 255))
-        screen.blit(score_text, (10, 10))
-
 
 
     def check_fail(self):
@@ -90,13 +88,12 @@ class MAIN:
             self.game_over()
         for block in self.snake.body[1:]:
             if block == self.snake.body[0]:
-                print("Gameover")
                 self.game_over()
 
 
     def game_over(self):
-        
         self.snake.reset()
+        self.score = 0
 
 # Game Setup
 pygame.init()
@@ -133,7 +130,6 @@ while True:
             elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc công click chu
                 pygame.quit()
                 sys.exit()
-
   #  screen.fill((175, 215, 70))
     main_game.draw_elements()
     pygame.display.update()
