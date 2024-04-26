@@ -38,7 +38,6 @@ class SNAKE:
     def reset(self):
         self.body = [Vector2(5, 10), Vector2(4, 10), Vector2(3, 10)]
         self.direction = Vector2(1, 0)
-        self.score = 0
 
 class FRUIT:
     def __init__(self):
