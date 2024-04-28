@@ -56,7 +56,7 @@ class MAIN:
     def __init__(self):
         self.snake = SNAKE()
         self.fruit = FRUIT()
-        self.fruit.score = 0
+        self.score = 0
 
     def update(self):
         self.snake.move_snake()
