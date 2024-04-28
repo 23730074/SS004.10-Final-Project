@@ -51,6 +51,7 @@ class FRUIT:
     def randomize(self):
         self.pos = Vector2(random.randint(0, cell_number_w - 1), random.randint(0, cell_number_h - 1))
 
+
 class MAIN:
     def __init__(self):
         self.snake = SNAKE()
@@ -61,6 +62,7 @@ class MAIN:
         self.snake.move_snake()
         self.check_collision()
         self.check_fail()
+
     def draw_board(self):
         for x in range(cell_number_w):
             for y in range(cell_number_h):
@@ -69,27 +71,28 @@ class MAIN:
                     pygame.draw.rect(screen, (171,225,51), rect)
                 else:
                     pygame.draw.rect(screen, (173,234,39), rect)
+
+
     def draw_elements(self):
         self.draw_board()
         self.fruit.draw_fruit()
         self.snake.draw_snake()
-        self.fruit.draw_score()
+        self.draw_score()
         
     def check_collision(self):
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
-            self.fruit.score += 1
             eat_sound.play()
+            self.score += 1
 
     def draw_score(self):
         font = pygame.font.Font(None, 36)
         score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
-        screen.blit(score_text, (10, 10))
+        screen.blit(score_text, (10, 10))  
 
-    
     def play_background_sound(self):
-        pygame.mixer.music.load("sound/wake me up.wav")
+        pygame.mixer.music.load("sound/SYA.wav")
         pygame.mixer.music.play(-1)
 
 
@@ -102,9 +105,11 @@ class MAIN:
 
 
     def game_over(self):
-        pygame.mixer.music.stop()  
+        pygame.mixer.music.stop()
+        self.is_game_over = True
         self.snake.reset()
-        self.fruit.score = 0
+        self.fruit.randomize()
+        self.score = 0
         self.play_background_sound()
           
 
@@ -121,7 +126,7 @@ pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
-background_sound = pygame.mixer.Sound("sound/wake me up.wav")
+background_sound = pygame.mixer.Sound("sound/SYA.wav")
 eat_sound = pygame.mixer.Sound("sound/tiengnhai.wav")
 main_game = MAIN()
 
