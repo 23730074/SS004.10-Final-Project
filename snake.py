@@ -58,6 +58,7 @@ class MAIN:
         self.fruit = FRUIT()
         self.score = 0
 
+
     def update(self):
         self.snake.move_snake()
         self.check_collision()
@@ -106,7 +107,7 @@ class MAIN:
 
     def game_over(self):
         pygame.mixer.music.stop()
-        self.is_game_over = True
+        die_sound.play()
         self.snake.reset()
         self.fruit.randomize()
         self.score = 0
@@ -128,6 +129,7 @@ SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
 background_sound = pygame.mixer.Sound("sound/SYA.wav")
 eat_sound = pygame.mixer.Sound("sound/tiengnhai.wav")
+die_sound = pygame.mixer.Sound("sound/die.wav")
 main_game = MAIN()
 
 # Game Loop
@@ -151,6 +153,7 @@ while True:
             elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc công click chu
                 pygame.quit()
                 sys.exit()
+            
   #  screen.fill((175, 215, 70))
     main_game.draw_elements()
     pygame.display.update()
