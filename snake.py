@@ -51,12 +51,6 @@ class FRUIT:
     def randomize(self):
         self.pos = Vector2(random.randint(0, cell_number_w - 1), random.randint(0, cell_number_h - 1))
 
-    def draw_score(self):
-        font = pygame.font.Font(None, 36)
-        score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
-        screen.blit(score_text, (10, 10))
-
-
 class MAIN:
     def __init__(self):
         self.snake = SNAKE()
@@ -88,6 +82,12 @@ class MAIN:
             self.fruit.score += 1
             eat_sound.play()
 
+    def draw_score(self):
+        font = pygame.font.Font(None, 36)
+        score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
+        screen.blit(score_text, (10, 10))
+
+    
     def play_background_sound(self):
         pygame.mixer.music.load("sound/wake me up.wav")
         pygame.mixer.music.play(-1)
