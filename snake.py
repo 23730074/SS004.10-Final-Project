@@ -125,7 +125,8 @@ class MAIN:
         self.snake = SNAKE()
         self.fruit = FRUIT()
         self.score = 0
-        self.highest_score = 0 
+        self.highest_score = 0
+        background_sound.play() 
 
     def update(self):
         self.snake.move_snake()
@@ -188,7 +189,7 @@ class MAIN:
         self.snake.reset()
         self.fruit.randomize()
         self.score = 0
-        self.play_background_sound()
+
           
 
 
