@@ -56,8 +56,11 @@ class MAIN:
     def __init__(self):
         self.snake = SNAKE()
         self.fruit = FRUIT()
+        self.best_score = 0
         self.score = 0
-
+        self.background_sound = pygame.mixer.Sound("sound/SYA.wav")
+        self.eat_sound = pygame.mixer.Sound("sound/tiengnhai.wav")
+        self.die_sound = pygame.mixer.Sound("sound/die.wav")
 
     def update(self):
         self.snake.move_snake()
@@ -84,13 +87,17 @@ class MAIN:
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
-            eat_sound.play()
+            self.eat_sound.play()
             self.score += 1
+            if self.best_score < self.score:
+                 self.best_score = self.score
 
     def draw_score(self):
         font = pygame.font.Font(None, 36)
         score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
-        screen.blit(score_text, (10, 10))  
+        screen.blit(score_text, (10, 10)) 
+        best_score_text = font.render("Best Score: " + str(self.best_score), True, (255, 255, 255))
+        screen.blit(best_score_text, (10, 40))
 
     def play_background_sound(self):
         pygame.mixer.music.load("sound/SYA.wav")
@@ -107,7 +114,7 @@ class MAIN:
 
     def game_over(self):
         pygame.mixer.music.stop()
-        die_sound.play()
+        self.die_sound.play()
         self.snake.reset()
         self.fruit.randomize()
         self.score = 0
@@ -127,9 +134,6 @@ pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 SCREEN_UPDATE = pygame.USEREVENT
 pygame.time.set_timer(SCREEN_UPDATE, 150)
-background_sound = pygame.mixer.Sound("sound/SYA.wav")
-eat_sound = pygame.mixer.Sound("sound/tiengnhai.wav")
-die_sound = pygame.mixer.Sound("sound/die.wav")
 main_game = MAIN()
 
 # Game Loop
