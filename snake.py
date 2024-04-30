@@ -27,6 +27,8 @@ class SNAKE:
             body_copy.insert(0, body_copy[0] + self.direction)
             self.body = body_copy
         self.has_moved = True
+
+
     def change_direction(self,new_direction):
         if self.has_moved:
             if new_direction.x * self.direction.x + new_direction.y * self.direction.y == 0:
@@ -57,13 +59,13 @@ class MAIN:
         self.snake = SNAKE()
         self.fruit = FRUIT()
         self.score = 0
-
+        self.highest_score = 0 
 
     def update(self):
         self.snake.move_snake()
         self.check_collision()
         self.check_fail()
-
+    
     def draw_board(self):
         for x in range(cell_number_w):
             for y in range(cell_number_h):
@@ -79,18 +81,27 @@ class MAIN:
         self.fruit.draw_fruit()
         self.snake.draw_snake()
         self.draw_score()
-        
+        self.draw_highest_score()
+
     def check_collision(self):
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
             eat_sound.play()
             self.score += 1
+            if self.score > self.highest_score:  # Cập nhật điểm số cao nhất nếu cần
+                self.highest_score = self.score 
+
 
     def draw_score(self):
         font = pygame.font.Font(None, 36)
         score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
         screen.blit(score_text, (10, 10))  
+
+    def draw_highest_score(self):
+            font = pygame.font.Font(None, 36)
+            score_text = font.render(f"Highest Score: {self.highest_score}", True, (255, 255, 255))
+            screen.blit(score_text, (width - 200, 10))  
 
     def play_background_sound(self):
         pygame.mixer.music.load("sound/SYA.wav")
