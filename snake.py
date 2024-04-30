@@ -47,8 +47,10 @@ class FRUIT:
         self.randomize()
 
     def draw_fruit(self):
-        fruit_pos = (int(self.pos.x * cell_size) + cell_size // 2, int(self.pos.y * cell_size) + cell_size // 2)
-        pygame.draw.circle(screen, (255, 0, 0), fruit_pos, cell_size // 2)
+        fruit_image = pygame.image.load("Images/fruit.png")
+        fruit_rect = fruit_image.get_rect(topleft=(self.pos.x * cell_size, self.pos.y * cell_size))
+        screen.blit(fruit_image, fruit_rect)
+
 
     def randomize(self):
         self.pos = Vector2(random.randint(0, cell_number_w - 1), random.randint(0, cell_number_h - 1))
