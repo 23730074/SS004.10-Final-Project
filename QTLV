@@ -1,0 +1,36 @@
+1.	Mô tả quá trình làm việc nhóm
+1.	Giao tiếp và lập kế hoạch
+- Các thành viên trong nhóm tạo kênh họp thông qua ứng dụng MS Teams để thảo luận về đồ án kết thúc môn, mục tiêu và các yêu cầu mà đề bài đưa ra.
+- Thống nhất về lịch trình hoạt động, xác định deadline và vai trò của từng thành viên trong nhóm thông qua Trello
+- Sắp xếp các cuộc họp định kì mỗi chiều chủ nhật hàng tuần sau khi kết thúc môn học để theo dõi tiến độ và giải quyết các vấn đề gặp phải trong quá trình thực hiện dự án.
+- Kênh chat Slack được sử dụng vào việc trao đổi giữa các thành viên, các thông tin cần cập nhật hay thay đổi trong trường hợp không có lịch họp hoặc không thể tham gia lịch họp vì vấn đề các nhân. 
+2.	Phân công công việc
+- Thế Danh sẽ xác định các công việc lớn và phân công các nhiệm vụ cụ thể cho Trọng Tín và Tài Lộc.
+- Thế Danh dựa trên các công việc lớn để xây dựng các mục tiêu nhỏ hơn cho phép tất cả thành viên được lựa chọn dựa trên nhiệm vụ của mình.
+- Đảm bảo rằng mỗi Thành viên đều hiểu rõ vai trò và trách nhiệm của mình.
+3.	Làm việc và chia sẻ công việc
+- Thành viên chia sẻ công việc, tiến độ và bất kì khó khăn hoặc vấn đề nào gặp phải.
+- Hỗ trợ và cung cấp phản hồi cho nhau để giúp đạt được các mục tiêu chung.
+- Mỗi thành viên thực hiện nhiệm vụ của mình dựa trên phân công ban đầu và dự kiến sẽ hoàn thành trong vòng ba tuần.
+4.	Kiểm tra và đánh giá
+- Kiểm tra tiến độ công việc và đảm bảo rằng mọi thành viên đang làm việc phù hợp với kế hoạch ban đầu.
+- Đánh giá và xem xét độ hoàn thành nhiệm vụ.
+- Đưa ra phản hồi và cải thiện nếu cần thiết để đạt được hiệu suất tốt hơn và hoàn thành dự án thành công.
+5.	Tương tác và phối hợp
+- Tương tác định kỳ và làm việc chặt chẽ với các thành viên khác trong nhóm.
+- Chia sẻ ý tưởng, kiến thức và thông tin quan trọng liên quan đến dự án.
+- Giải quyết mọi xung đột ý kiến và đảm bảo tất cả mọi người đều hoạt động với cùng một mục tiêu.
+6.	Tiến độ hoàn thành công việc
+•	Tuần thứ nhất:
+- Trọng Tín có nhiệm vụ tạo khung và các tính năng cơ bản của trò chơi, trong tuần đầu bạn sẽ ưu tiên thực hiện viết code để xây dựng master source và upload lên Github.
+- Tài Lộc tìm hiểu và soạn thảo các kỹ năng tối thiểu áp dụng trong dự án này.
+- Thế Danh thực hiện việc soạn thảo hợp đồng nhóm thông qua LaTex.
+•	Tuần thứ hai:
+- Tài Lộc tạo branch, thêm biến điểm số, cập nhật biến khi rắn ăn thức ăn và hiển thị điểm số trên giao diện người dùng, thêm âm thanh cho trò chơi (Game Over, Ăn thức ăn, Nhạc nền,...).
+- Thế Danh tạo branch, thêm Graphics cho các đối tượng (Snake,Fruit), tạo highest Score dựa trên source code của các thành viên.
+- Trọng Tín soạn thảo phần giới thiệu và hướng dẫn chơi game, hỗ trợ các thành viên kiểm tra và chỉnh sửa code game.
+•	Tuần thứ ba:
+- Thế Danh thực hiện đánh giá dựa trên hợp đồng nhóm, tổng hợp lại các file báo cáo.
+- Trọng Tín soạn thảo tài liệu kĩ thuật trò chơi, giới thiệu chức năng chính.
+- Tài Lộc soạn thảo mô tả quá trình làm việc nhóm của các thành viên.
+- Các thành viên kiểm tra lại nhiệm vụ của mình thông qua Trello và đánh dấu là “Hoàn tất” sau khi hoàn thành nhiệm vụ của mình.
