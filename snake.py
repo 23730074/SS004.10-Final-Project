@@ -126,7 +126,10 @@ class MAIN:
         self.fruit = FRUIT()
         self.score = 0
         self.highest_score = 0
-        background_sound.play() 
+        self.background_sound = pygame.mixer.Sound("sound/SYA.wav")
+        self.eat_sound = pygame.mixer.Sound("sound/tiengnhai.wav")
+        self.die_sound = pygame.mixer.Sound("sound/die.wav")
+        self.background_sound.play(-1)
 
     def update(self):
         self.snake.move_snake()
@@ -154,7 +157,7 @@ class MAIN:
         if self.fruit.pos == self.snake.body[0]:
             self.fruit.randomize()
             self.snake.add_block()
-            eat_sound.play()
+            self.eat_sound.play()
             self.score += 1
             if self.score > self.highest_score:  # Cập nhật điểm số cao nhất nếu cần
                 self.highest_score = self.score 
@@ -184,8 +187,7 @@ class MAIN:
 
 
     def game_over(self):
-        pygame.mixer.music.stop()
-        die_sound.play()
+        self.die_sound.play()
         self.snake.reset()
         self.fruit.randomize()
         self.score = 0
