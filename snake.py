@@ -165,8 +165,20 @@ class MAIN:
 
     def draw_score(self):
         font = pygame.font.Font(None, 36)
-        score_text = font.render("Score: " + str(self.score), True, (255, 255, 255))
-        screen.blit(score_text, (10, 10))  
+        score_text = font.render(str(self.score), True, (255, 255, 255))
+        
+        # Vị trí của hình ảnh trái táo
+        fruit_image = pygame.image.load("Images/fruit.png")
+        fruit_rect = fruit_image.get_rect(topleft=(10, 10))
+        
+        # Vị trí của số điểm (dựa vào kích thước của hình ảnh trái táo)
+        score_x = fruit_rect.right + 10
+        score_y = fruit_rect.centery - score_text.get_height() // 2
+        
+        # Vẽ hình ảnh trái táo và số điểm
+        screen.blit(fruit_image, fruit_rect)
+        screen.blit(score_text, (score_x, score_y))
+ 
 
     def draw_highest_score(self):
             font = pygame.font.Font(None, 36)
