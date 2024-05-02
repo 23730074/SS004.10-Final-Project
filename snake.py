@@ -159,7 +159,7 @@ class MAIN:
             self.snake.add_block()
             self.eat_sound.play()
             self.score += 1
-            if self.score > self.highest_score:  # Cập nhật điểm số cao nhất nếu cần
+            if self.score > self.highest_score: 
                 self.highest_score = self.score 
 
 
@@ -167,23 +167,26 @@ class MAIN:
         font = pygame.font.Font(None, 36)
         score_text = font.render(str(self.score), True, (255, 255, 255))
         
-        # Vị trí của hình ảnh trái táo
         fruit_image = pygame.image.load("Images/fruit.png")
         fruit_rect = fruit_image.get_rect(topleft=(10, 10))
         
-        # Vị trí của số điểm (dựa vào kích thước của hình ảnh trái táo)
         score_x = fruit_rect.right + 10
         score_y = fruit_rect.centery - score_text.get_height() // 2
-        
-        # Vẽ hình ảnh trái táo và số điểm
+             
         screen.blit(fruit_image, fruit_rect)
         screen.blit(score_text, (score_x, score_y))
  
 
     def draw_highest_score(self):
-            font = pygame.font.Font(None, 36)
-            score_text = font.render(f"Highest Score: {self.highest_score}", True, (255, 255, 255))
-            screen.blit(score_text, (width - 200, 10))  
+        font = pygame.font.Font(None, 36)
+        score_text = font.render(f"{self.highest_score}", True, (255, 255, 255))
+        
+        trophy_image = pygame.image.load("Images/trophy.png") 
+        trophy_rect = trophy_image.get_rect(topright=(770, 12)) 
+        
+        screen.blit(trophy_image, trophy_rect) 
+        screen.blit(score_text, (width - 30, 20))
+
 
     def play_background_sound(self):
         pygame.mixer.music.load("sound/SYA.wav")
@@ -242,7 +245,7 @@ while True:
                 main_game.snake.change_direction(Vector2(0,1))
             elif event.key == pygame.K_LEFT and main_game.snake.direction.x != 1:
                 main_game.snake.change_direction(Vector2(-1,0))
-            elif event.key == pygame.K_ESCAPE:  # Thêm Nút escape để thoát game khỏi mắc công click chu
+            elif event.key == pygame.K_ESCAPE:
                 pygame.quit()
                 sys.exit()
             
